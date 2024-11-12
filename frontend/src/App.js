@@ -3,7 +3,7 @@ import './App.css';
 import { io } from 'socket.io-client';
 import PDFViewer from './PDFViewer';
 
-// Automatically set the backend IP based on the frontend URL
+
 const socket = io(`${window.location.protocol}//${window.location.hostname}:5000`); 
 
 const App = () => {
