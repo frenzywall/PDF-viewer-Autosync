@@ -1,0 +1,19 @@
+{
+    "name": "pdf-co-viewer",
+    "private": true,
+    "dependencies": {
+      "express": "^4.18.2",
+      "socket.io": "^4.4.1",
+      "pdfjs-dist": "^2.11.338"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.22"
+    },
+    "scripts": {
+      "start": "concurrently \"npm run server\" \"npm run client\"",
+      "server": "cd backend && npm run dev",
+      "client": "cd frontend && npm start",
+      "dev": "concurrently \"npm run server\" \"npm run client\""
+    }
+  }
+  
