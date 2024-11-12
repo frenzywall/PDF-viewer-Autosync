@@ -3,20 +3,19 @@ import './App.css';
 import { io } from 'socket.io-client';
 import PDFViewer from './PDFViewer';
 
-
-const socket = io('http://localhost:5000'); 
+// Automatically set the backend IP based on the frontend URL
+const socket = io(`${window.location.protocol}//${window.location.hostname}:5000`); 
 
 const App = () => {
   const [page, setPage] = useState(1);
   const [isAdmin, setIsAdmin] = useState(false);
 
-
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const isAdminFromUrl = urlParams.get('isAdmin') === 'true';
     setIsAdmin(isAdminFromUrl);
+    socket.emit('set-role', isAdminFromUrl);
   }, []);
-
 
   useEffect(() => {
     socket.on('sync-page', (newPage) => {
@@ -24,13 +23,13 @@ const App = () => {
     });
 
     return () => {
-      socket.off('sync-page'); 
+      socket.off('sync-page');
     };
   }, []);
 
   const changePage = (newPage) => {
     if (isAdmin) {
-      socket.emit('change-page', newPage);  
+      socket.emit('change-page', newPage);
     }
     setPage(newPage);
   };
