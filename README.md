@@ -10,7 +10,7 @@ This project implements a PDF viewer that allows synchronization between two use
 
 ## Getting Started
 
-Add any pdf file in /Pdf-viewer-Autosync/frontend/public/{yourpdf} #The extension should be .pdf, no need add extra .pdf at the end!
+Add any pdf file in /Pdf-viewer-Autosync/frontend/public/{yourpdf} #The extension should be .pdf, no need add extra .pdf at the end! --------Rename your pdf as sample.pdf(!IMP!)-------------
 
 To get started, you need to set up both the frontend and backend of the application.
 
